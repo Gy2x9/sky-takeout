@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sky.mapper.DishMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id"> #这里的意思是返回菜品id，因为id是在插入菜品之后自动生成的，而口味表那里又需要菜品id做外键所以这里需要返回一下
+        insert into dish (name, category_id, price, image, description, create_time, update_time, create_user,update_user, status)
+        values (#{name}, #{categoryId}, #{price}, #{image}, #{description}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser}, #{status})
+    </insert>
+</mapper>
