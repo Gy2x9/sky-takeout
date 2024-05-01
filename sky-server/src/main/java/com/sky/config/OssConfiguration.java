@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 public class OssConfiguration {
 
     @Bean
-    @ConditionalOnMissingBean
+    @ConditionalOnMissingBean //意思是没有这个bean的时候自动创建生成一个
     public AliOssUtil aliOssUtil(AliOssProperties aliOssProperties){
         log.info("开始创建阿里云文件上传工具类对象：{}",aliOssProperties);
         return new AliOssUtil(aliOssProperties.getEndpoint(),
